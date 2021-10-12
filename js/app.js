@@ -9,9 +9,9 @@ let board = []
 
 let isWinner
 
-const winMsg = `Player ${turn} is the winner!`
-const tieMsg = `Game is a tie`
-const playerTurn = `It's ${turn}'s turn' `
+const winMsg = () => `Player ${turn} is the winner!`
+const tieMsg = () => `Game is a tie`
+const playerTurn = () => `It's ${turn}'s turn' `
 
 
 
@@ -50,14 +50,21 @@ function render() {
   
   square.forEach((quadrangle,idx) => { 
   quadrangle = square[idx]
-  if ( turn === 1)  { // and element is clicked)
-    quadrangle.style.backgroundColor = "green"
+  if ( board[idx] === 1)  { // and element is clicked)
+    quadrangle.style.backgroundColor = "red"
+    quadrangle.innerText = "O"
 
-  } else if (turn === -1) {
-    quadrangle.style.backgroundColor = "yellow"
+  } else if ( board[idx] === -1) {
+    quadrangle.style.backgroundColor = "gold"
+    quadrangle.innerText = "X"
     }
   
   })
-  
-  
+  if ( isWinner === -1 || isWinner === 1) {
+    return winMsg()
+  } else if (isWinner === "T") {
+      return tieMsg()
+  } else {
+      return playerTurn()
+  }
 }
