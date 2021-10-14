@@ -61,6 +61,7 @@ function render() {
       quadrangle.style.backgroundColor = "black"
       quadrangle.innerText = "X"
       quadrangle.style.color = "white"
+      quadrangle.innerText.justifyContent = "center"
 
     } else if (board[idx] === -1) {
       quadrangle.style.backgroundColor = "black"
